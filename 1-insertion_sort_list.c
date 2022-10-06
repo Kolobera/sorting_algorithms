@@ -2,8 +2,7 @@
 
 /**
  * insertion_sort_list - sorting algorithm
- * @array: array to sort
- * @size: size of array
+ * @list: list to sort
  */
 
 void insertion_sort_list(listint_t **list)
