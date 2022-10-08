@@ -9,13 +9,13 @@
  */
 void partition(int *left, int *right, int *array, size_t size)
 {
-    int tmp;
+	int tmp;
 
-    tmp = *left;
-    *left = *right;
-    *right = tmp;
-    if (tmp != *left)
-        print_array(array, size);
+	tmp = *left;
+	*left = *right;
+	*right = tmp;
+	if (tmp != *left)
+		print_array(array, size);
 }
 
 /**
@@ -27,24 +27,24 @@ void partition(int *left, int *right, int *array, size_t size)
  */
 void quicksort(int *array, int left, int right, size_t size)
 {
-    int pivot = array[right];
-    int i = left;
-    int j = 0;
+	int pivot = array[right];
+	int i = left;
+	int j = 0;
 
-    if (left < right)
-    {
-        for (j = left; j < right; j++)
-        {
-            if (array[j] < pivot)
-            {
-                partition(&array[i], &array[j], array, size);
-                i += 1;
-            }
-        }
-        partition(&array[i], &array[right], array, size);
-        quicksort(array, left, i - 1, size);
-        quicksort(array, i + 1, right, size);
-    }
+	if (left < right)
+	{
+		for (j = left; j < right; j++)
+		{
+			if (array[j] < pivot)
+			{
+				partition(&array[i], &array[j], array, size);
+				i += 1;
+			}
+		}
+		partition(&array[i], &array[right], array, size);
+		quicksort(array, left, i - 1, size);
+		quicksort(array, i + 1, right, size);
+	}
 }
 /**
  * quick_sort - sorting algorithm
@@ -54,8 +54,7 @@ void quicksort(int *array, int left, int right, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
-    if (array == NULL || size < 2)
-        return;
-
-    quicksort(array, 0, ((int)size - 1), size);
+	if (array == NULL || size < 2)
+		return;
+	quicksort(array, 0, ((int)size - 1), size);
 }
