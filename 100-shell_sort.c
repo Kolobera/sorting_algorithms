@@ -7,7 +7,7 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	size_t gapi, gap, j, i, k, l, temp, flag;
+	size_t gapi, gap, j, i, k, l, temp, flag = 1;
 	int lk;
 
 	if (array == NULL || size < 2)
@@ -26,7 +26,6 @@ void shell_sort(int *array, size_t size)
 			{
 				k = j;
 				l = i;
-				flag = 1;
 				while (flag)
 				{
 					if (array[k] < array[l])
@@ -39,9 +38,7 @@ void shell_sort(int *array, size_t size)
 						break;
 					lk = l - gap;
 					if (lk < 0)
-					{
 						break;
-					}
 					k = k - gap;
 					l = l - gap;
 				}
