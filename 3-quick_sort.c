@@ -1,51 +1,49 @@
 #include "sort.h"
 
-
 /**
- * partition - make a partition of A 
- * @A: array
- * @start: start of A portion
- * @end: end of A portion
- * Return: partition index
+ * partition - change of position
+ * @left: ...
+ * @right: ..
+ * @array: ..
+ * @size: ...
  */
-
-int partition(int *A, int start, int end, size_t size)
+void partition(int *left, int *right, int *array, size_t size)
 {
-    int pivot = A[end], i, temp, p_index = start;
+    int tmp;
 
-
-    for (i = start; i < end; i++)
-    {
-        if (A[i] < pivot)
-        {
-            temp = A[i];
-            A[i] = A[p_index];
-            A[p_index] = temp;
-            p_index++;
-        }
-    }
-    temp = A[p_index];
-    A[p_index] = A[end];
-    A[end] = temp;
-    print_array(A, size);
-    return p_index;
+    tmp = *left;
+    *left = *right;
+    *right = tmp;
+    if (tmp != *left)
+        print_array(array, size);
 }
 
 /**
- * quicksort - sorting algorithm
- * @A: array
- * @start: start of A portion
- * @end: end of A portion
+ * quicksort - function to divide the array
+ * @array: array
+ * @left: left
+ * @right: right
+ * @size: size
  */
-
-void quicksort(int *A, int start, int end, size_t size)
+void quicksort(int *array, int left, int right, size_t size)
 {
-    int p_index;
-    if (start < end)
+    int pivot = array[right];
+    int i = left;
+    int j = 0;
+
+    if (left < right)
     {
-        p_index = partition(A, start, end, size);
-        quicksort(A, start, p_index - 1, size);
-        quicksort(A, p_index + 1, end, size);
+        for (j = left; j < right; j++)
+        {
+            if (array[j] < pivot)
+            {
+                partition(&array[i], &array[j], array, size);
+                i += 1;
+            }
+        }
+        partition(&array[i], &array[right], array, size);
+        quicksort(array, left, i - 1, size);
+        quicksort(array, i + 1, right, size);
     }
 }
 /**
