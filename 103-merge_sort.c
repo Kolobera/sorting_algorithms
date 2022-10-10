@@ -1,6 +1,12 @@
 #include "sort.h"
 
-
+/**
+ * p_merge - print
+ * @A: ...
+ * @lb: ...
+ * @mid: ...
+ * @ub: ...
+ */
 void p_merge(int *A, int lb, int mid, int ub)
 {
     int n, o;
@@ -38,7 +44,7 @@ void p_merge(int *A, int lb, int mid, int ub)
  */
 void merge(int *A, int lb,int mid, int ub, int *b)
 {
-    int i = lb, j = mid + 1, k = lb, temp, te, o;
+    int i = lb, j = mid + 1, k = lb, temp = 1, te = 0, o;
 
     if (lb <= mid && mid + 1 <= ub)
     {       
@@ -67,11 +73,6 @@ void merge(int *A, int lb,int mid, int ub, int *b)
     {
         temp = i;
         te = mid;
-    }
-    else
-    {
-        temp = 1;
-        te = 0;   
     }
     while (temp <= te)
     {
