@@ -37,5 +37,6 @@ void radix_sort(int *array, size_t size)
     {
         countsort(array, n, i);
         print_array(array, size);
+	printf("zml");
     }
 }
